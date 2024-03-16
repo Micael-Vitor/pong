@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://c62ufm4w2uboi"]
+
+[ext_resource type="Texture2D" uid="uid://bypovyy3v44is" path="res://Pong/assets/sprites/campo-roxo.png" id="1_txp5j"]
+[ext_resource type="Texture2D" uid="uid://dpj8i18t1uc1s" path="res://Pong/assets/sprites/jogador.png" id="2_8dlll"]
+[ext_resource type="PackedScene" uid="uid://cyjx1oq80qjtc" path="res://Pong/scenes/jogador/jogador.tscn" id="3_1viau"]
+[ext_resource type="PackedScene" uid="uid://dq72610walauc" path="res://Pong/scenes/jogador/jogador2.tscn" id="4_72515"]
+[ext_resource type="PackedScene" uid="uid://c5ryv45f0lxcr" path="res://Pong/scenes/bola/bola.tscn" id="4_jovcj"]
+
+[node name="Main" type="Node2D"]
+
+[node name="campo" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_txp5j")
+
+[node name="linhaDoMeio" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(0.5, 5.6)
+texture = ExtResource("2_8dlll")
+
+[node name="Jogador1" parent="." instance=ExtResource("3_1viau")]
+position = Vector2(64, 352)
+
+[node name="Jogador2" parent="." instance=ExtResource("4_72515")]
+position = Vector2(1224, 352)
+
+[node name="Bola" parent="." instance=ExtResource("4_jovcj")]
+position = Vector2(640, 360)
