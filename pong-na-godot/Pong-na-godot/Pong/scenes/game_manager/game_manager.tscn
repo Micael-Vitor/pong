@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ovg2strf6q2c"]
+
+[ext_resource type="Script" path="res://Pong/scenes/game_manager/game_manager.gd" id="1_udupo"]
+[ext_resource type="AudioStream" uid="uid://dutoeprxo3n66" path="res://Pong/assets/sons/impacto-gol.wav" id="2_tl1hw"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_udupo")
+
+[node name="somImpactoGol" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tl1hw")

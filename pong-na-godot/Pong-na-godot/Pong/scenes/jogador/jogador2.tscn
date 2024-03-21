@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq72610walauc"]
+
+[ext_resource type="Texture2D" uid="uid://byts8l2gilyat" path="res://sprites games/bong/Npc_-_Alien_Ship.png" id="1_3q75r"]
+
+[sub_resource type="GDScript" id="GDScript_i6qxs"]
+resource_name = "jogador2"
+script/source = "extends StaticBody2D
+
+
+#Parametros
+@export var jogador1 : bool
+
+#Movimento
+var velocidadeDoJogador : int = 500
+
+#Limites
+var y_minimo : float = 64
+var y_maximo : float = 654
+
+
+func _process(delta):
+	movimentarJogador(delta)
+	limitarMovimentoDoJogador()
+	
+	
+func movimentarJogador(delta : float)-> void:
+	# Movimento do jogador 1
+	if jogador1:
+		if Input.is_action_pressed(\"mv_cima2\"):
+			position.y -= velocidadeDoJogador * delta 
+		elif Input.is_action_pressed(\"mv_baixo2\"):
+			position.y += velocidadeDoJogador * delta
+
+
+func limitarMovimentoDoJogador()-> void:
+	position.y = clamp(position.y, y_minimo, y_maximo)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luovv"]
+size = Vector2(20, 60)
+
+[node name="Jogador2" type="StaticBody2D" groups=["jogador2"]]
+texture_filter = 1
+script = SubResource("GDScript_i6qxs")
+jogador1 = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3q75r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_luovv")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyjx1oq80qjtc"]
+
+[ext_resource type="Script" path="res://Pong/scenes/jogador/jogador.gd" id="1_2lm2e"]
+[ext_resource type="Texture2D" uid="uid://ct8nhcs45l754" path="res://sprites games/bong/Player_-_Alien_Ship.png" id="2_hk5rx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdnvb"]
+size = Vector2(20, 60)
+
+[node name="Jogador" type="StaticBody2D" groups=["jogador1"]]
+texture_filter = 1
+position = Vector2(438, 178)
+script = ExtResource("1_2lm2e")
+jogador1 = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hk5rx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_vdnvb")
